@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <title>数据库列表</title>
+    <style>
+        .page {
+            height: 100vh;
+            background-color: #E2E5EC;
+        }
+
+        .main {
+            height: 95vh;
+            background-color: #ffffff;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            cursor: pointer;
+            text-align: center;
+            font-size: 20px;
+            height: 30px;
+            line-height: 50px;
+            vertical-align: middle; /*设置垂直居中*/
+        }
+
+        .button {
+            margin-left: 30px;
+        }
+        .table-info {
+            margin-top: 15px;
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid page">
+    <div class="col-md-12 main">
+        <div class="title">数据库列表</div>
+        <hr>
+        <div class="button">
+            <button class="btn btn-primary">创建数据库</button>
+            <button class="btn btn-primary">删除</button>
+        </div>
+        <div class="table-info">
+            <table class="table">
+                <tr>
+                    <td>数据库名称</td>
+                    <td>ID</td>
+                    <td>描述</td>
+                    <td>状态</td>
+                    <td>支付信息</td>
+                    <td>操作</td>
+                </tr>
+                <tr>
+                    <td>数据库名称</td>
+                    <td>ID</td>
+                    <td>描述</td>
+                    <td>状态</td>
+                    <td>支付信息</td>
+                    <td>操作</td>
+                </tr>
+                <tr>
+                    <td>数据库名称</td>
+                    <td>ID</td>
+                    <td>描述</td>
+                    <td>状态</td>
+                    <td>到期时间</td>
+                    <td>操作</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <title>数据库信息</title>
+</head>
+<body>
+<div class="container-fluid page">
+    <div class="col-xsxs-12 main">
+        <div class="content">
+            <div class="row">
+                <span class="col-xs-2">数据库名称</span>
+                <span class="col-xs-2"><i class="fa fa-circle">正常</i></span>
+                <span class="col-xs-2 col-md-offset-6"><button class="btn btn-default">控制面板</button></span>
+            </div>
+            <hr id="title">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="row info">
+                        <div class="title">基本信息</div>
+                        <br>
+                        <div class="text">
+                            数据库名称：shifandata1 <br> <br>
+                            数据库ID：tsdb <br> <br>
+                            描述：shifandata1 <br><br>
+                            域名：shifandata1.tsdb-yo16ju<br>
+                        </div>
+                    </div>
+                    <div class="row info">
+                        <div class="title">配置信息</div>
+                        <br>
+                        <div class="text">
+                            写入额度: 1百万点/月（配额）<br> <br>
+                            最大时间序列： 1000个 <a href="#">什么是时间序列?</a><br><br>
+                            存储空间：0GB <br><br>
+                            <button class="btn btn-primary">升级配置</button>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="row info">
+                        <div class="title">支付信息</div>
+                        <br>
+                        <div class="text">
+                            计费模式：标准模式 <br><br>
+                            支付方式： 预付费 <br><br>
+                            到期时间： 2019-04-24 20:57:25 <br><br>
+                            创建时间：2018-12-24 20:57:25 <br><br>
+                            <button class="btn btn-primary">续费</button>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<style>
+
+    .main {
+        background-color: #E2E5EC;
+    }
+
+    .menu > li {
+        text-align: center;
+        font-size: 15px;
+        height: 50px;
+        line-height: 50px;
+        vertical-align: middle; /*设置垂直居中*/
+    }
+
+    .menu > li:hover {
+        cursor: pointer;
+        background-color: #ecf6fd;
+        border-right: 2px solid #108cee;
+    }
+
+    .content {
+        margin-top: 20px;
+        padding-top: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        background-color: #ffffff;
+    }
+
+    #title {
+        margin-left: -20px;
+        margin-right: -20px;
+        margin-top: 5px;
+    }
+
+    .title {
+        border-left: 5px solid #108cee;
+        padding-left: 5px;
+        font-size: 16px;
+    }
+
+    .info {
+        padding: 20px;
+    }
+
+    .page {
+        height: 100vh;
+        background-color: #E2E5EC;
+    }
+</style>
+<script>
+
+</script>
+</html>

@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>   
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <title>数据库信息</title>
+</head>
+<body>
+<div class="container-fluid page">
+    <div class="col-md-2 left-nav">
+        <ul class="menu">
+            <li><i class="fa fa-chevron-left" aria-hidden="true"></i>返回数据库列表</li>
+            <li>基本信息</li>
+            <li>数据时效</li>
+            <li>数据清理</li>
+        </ul>
+    </div>
+    <div class="col-md-10 main">
+        <div class="content">
+            <div class="row">
+                <span class="col-md-2">数据库名称</span>
+                <span class="col-md-2"><i class="fa fa-circle">$status</i></span>
+                <span class="col-md-2 col-md-offset-6"><button class="btn btn-primary">控制面板</button></span>
+            </div>
+            <hr id="title">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row info">
+                        <div class="title">基本信息</div><br>
+                        <div class="text">
+                            <div>数据库名称：$name</div> <br> 
+                            <div>数据库ID：$ID</div> <br> 
+                            <div>描述：$description </div><br>
+                            <div>域名：$endpoint</div><br>
+                        </div>
+                    </div>
+                    <div class="row info">
+                        <div class="title">配置信息</div><br>
+                        <div class="text">
+                            <div>写入额度: $ingestDataPointsMonthly百万点/月（配额）</div><br>
+                            <div>最大时间序列： 1000个 <a href="#">什么是时间序列?</a></div><br>
+                            <div>存储空间：$storeBytesQuotaGB 仅String、Byte等长数据格式占用该空间 </div><br>
+                            <button class="btn btn-primary">升级配置</button><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row info">
+                        <div class="title">支付信息</div><br>
+                        <div class="text">
+                            <div>计费模式：标准模式</div> <br>
+                            <div>支付方式： 预付费</div><br>
+                            <div>到期时间： $expiredTime</div> <br>
+                            <div>创建时间：$createTime</div><br>
+                            <button class="btn btn-primary">续费</button><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<style>
+    .left-nav {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .main {
+        background-color: #E2E5EC;
+    }
+
+    .menu {
+        height: 100vh;
+        background-color: #ffffff;
+        padding-left: 0;
+        padding-top: 20px;
+        list-style-type: none;
+    }
+
+    .menu>li {
+        text-align: center;
+        font-size: 15px;
+        height: 50px;
+        line-height: 50px;
+        vertical-align: middle; /*设置垂直居中*/
+    }
+
+    .menu>li:hover{
+        cursor: pointer;
+        background-color: #ecf6fd;
+        border-right: 2px solid #108cee;
+    }
+
+    .content {
+        margin-top: 20px;
+        padding-top: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        background-color: #ffffff;
+    }
+
+    #title {
+        margin-left: -20px;
+        margin-right: -20px;
+        margin-top: 5px;
+    }
+    .title {
+        border-left:5px solid #108cee;
+        padding-left: 5px;
+        font-size: 16px;
+    }
+    .info {
+        padding: 20px;
+    }
+    .page {
+        height: 100vh;
+        background-color: #E2E5EC;
+    }
+</style>
+<script>
+
+</script>
+</html>

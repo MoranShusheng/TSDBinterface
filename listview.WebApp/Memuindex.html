@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <title>数据库信息</title>
+</head>
+<body>
+<div class="container-fluid page">
+    <div class="col-xs-2 left-nav">
+        <ul class="menu">
+            <li onclick="turnTopage(0)">返回数据库列表</li>
+            <li onclick="turnTopage(1)">基本信息</li>
+            <li onclick="turnTopage(2)">数据清理</li>
+        </ul>
+    </div>
+    <div class="col-xs-10 main">
+        <iframe src="" frameborder="0"></iframe>
+    </div>
+
+</div>
+
+</body>
+<style>
+    iframe {
+        width: 100%;
+        height: 800px;
+        margin-right: 0px;
+    }
+    .left-nav {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .main {
+        padding-right: 0;
+        background-color: #E2E5EC;
+    }
+
+    .menu {
+        height: 100vh;
+        background-color: #ffffff;
+        padding-left: 0;
+        padding-top: 20px;
+        list-style-type: none;
+    }
+
+    .menu>li {
+        text-align: center;
+        font-size: 15px;
+        height: 50px;
+        line-height: 50px;
+        vertical-align: middle; /*设置垂直居中*/
+    }
+
+    .menu>li:hover{
+        cursor: pointer;
+        background-color: #ecf6fd;
+        border-right: 2px solid #108cee;
+    }
+
+    .page {
+        height: 100vh;
+        background-color: #E2E5EC;
+    }
+</style>
+<script>
+    $(function () {
+        $("iframe").attr('src', 'DatabaseInfo.html')
+    })
+    function turnTopage(value) {
+        if (value === 0)
+            $("iframe").attr('src', 'Index.aspx');
+        if (value === 1)
+            $("iframe").attr('src', 'DatabaseInfo.ashx');
+        if (value === 2)
+            $("iframe").attr('src', 'cleanDatePoints.html')
+    }
+</script>
+</html>
