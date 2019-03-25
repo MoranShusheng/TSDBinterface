@@ -71,6 +71,7 @@
     <Content Include="DelectDatapoints.aspx" />
     <Content Include="Error.html" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="HtmlPage_test.html" />
     <Content Include="Index.aspx" />
     <Content Include="js\vue.js" />
     <Content Include="Memuindex.html" />
