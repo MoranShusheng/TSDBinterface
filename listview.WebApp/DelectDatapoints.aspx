@@ -94,56 +94,51 @@
             //    document.getElementById("field").add(newOption);
             //}
         })
-        //function delectMetric() {
-        //    let metric = $('#metric option:selected').val();
-        //    //var obj = document.getElementById('field');
-        //    //obj.options.add(new Option("text", "value"));
-        //    var fieldList = [];
-        //    console.log(metric);
-        //    $.ajax({
-        //        type: 'GET',
-        //        url: 'SelectedMetric.ashx?metric=' + metric,
-        //        success: function (response) {
-        //            console.log(response + "结果列表")
-        //            fieldList = response.split(',');
-        //            console.log(fieldList + fieldList.length)
-        //            $('#field').append("<option value=i>最后一个</option>")
-        //            var newOption = document.createElement("option");
-        //            newOption.text = "最后两个";
-        //            document.getElementById("field").add(newOption);
-        //            for (let i = 0; i < fieldList.length; i++) {
-        //                $('#field').append("<option value=i>" + i + "</option>")
-        //                console.log(i)
-        //            }
-                    
-        //            console.log("结束")
-        //            alert("好的")
-        //            //let content = ""
-        //          //  console.log($('#field').text())
-        //           // $('#field').append("<option value=i>第一</option>")
-        //            //for (let i = 0; i < fieldList.length; i++) {
-        //            //        var newOption = document.createElement("option");
-        //            //        newOption.text = fieldList[i].text;
-        //            //        newOption.value = i;
-        //            //        document.getElementById("field").add(newOption);
-        //            //    //content += "<option>" + fieldList[i] + "</option>"                       
-        //            //    console.log(fieldList[i])
-        //            //}
-        //            // $("#field").html(content);
-        //        },
-        //        error: function (response) {
-        //            alert("error")
-        //        }
-        //    })
-        //    //for (var i = 2000; i < 2031; i++) {
-        //    //    var newOption = document.createElement("option");
-        //    //    newOption.text = i + "年";
-        //    //    newOption.value = i;
-        //    //    document.getElementById("field").add(newOption);
-        //    //}
-        //    console.log(fieldList.length + fieldList)
+        function delectMetric() {
+            let metric = $('#metric option:selected').val();
+            var fieldList = [];
+            if (metric != "全部") {
+                $.ajax({
+                    type: 'GET',
+                    url: 'SelectedMetric.ashx?metric=' + metric,
+                    success: function (response) {
+                        console.log(response + "结果列表")
+                        fieldList = response.split(',');
+                        for (let i = 0; i < fieldList.length; i++) {
+
+                            $('#field').append("<option value=" + i + ">" + fieldList[i] + "</option>")
+                            console.log(i)
+                        }
+                        $('#field').selectpicker('refresh');
+                        $('#field').selectpicker('render');
+                        //let content = ""
+                        // console.log($('#field').text())
+                        // $('#field').append("<option value=i>第一</option>")
+                        //for (let i = 0; i < fieldList.length; i++) {
+                        //        var newOption = document.createElement("option");
+                        //        newOption.text = fieldList[i].text;
+                        //        newOption.value = i;
+                        //        document.getElementById("field").add(newOption);
+                        //    //content += "<option>" + fieldList[i] + "</option>"                       
+                        //    console.log(fieldList[i])
+                        //}
+                        // $("#field").html(content);
+                    },
+                    error: function (response) {
+                        alert("error")
+                    }
+                })
+            }
+            else {
+                $("#field").empty();
+                $('#field').append("<option value=全部>全部</option>")
+                $('#field').selectpicker('refresh');
+                $('#field').selectpicker('render');
+            }
+
+
           
-        //}
+        }
         //<!--取得选择的时间-->
         //        var radio=$('input[name="time"]:checked').val();
         //        if(radio=="0"){
@@ -227,7 +222,7 @@
             <div>
                 <div class="select">
                     <label for="metric">度量：&emsp;&emsp;&emsp;</label>
-                    <select class="selectpicker" name="度量" id="metric" @change="delectMetric()">
+                    <select class="selectpicker" name="度量" id="metric" onchange="delectMetric()"> <%--v-model="sele1"--%>
                         <option>全部</option>
                         <%for(int i = 0;i< ListMetrics.Count;i++){ %>
                            <option><%=ListMetrics[i]%></option>
@@ -236,11 +231,11 @@
                     </select>
                 </div>
                 <br/>
-                <div class="select layui-form" lay-filter="test1">
+                <div class="select"> <%--v-if="hackReset"--%>
                     <label for="field">域：&emsp;&emsp;&emsp;&emsp;</label>
-                    <select class="selectpicker"  name="域：" id="field">
+                    <select class="selectpicker"  name="域："id="field"> <%-- v-model="hah" --%>
                         <option value="0">全部</option>
-                        <option v-for="(item, index) in field" :key="index" :value="item">{{item}}</option>
+                      <%--  <option v-for="(item, index) in field" :key="index" :value="item">{{item}}</option>--%>
                     </select>
                 </div>
                 <br/><br/>
@@ -298,6 +293,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
 </body>
@@ -315,8 +311,13 @@
                 value2: ''
             },
             lists: [],
-            field: [],
+            //field: [],
+            //hah: 'ah',
+            //sele1: '1',
+            //hackReset:true,
+            
         },
+       
         methods: {
             deleteItem(value) {
                 console.log(value)
@@ -332,27 +333,32 @@
                 })
                 console.log(this.lists)
             },
-            delectMetric() {
-                let metric = $('#metric option:selected').val();
-                //var fieldList = [];
-                console.log(metric);
-                var that = this
-                $.ajax({
-                    type: 'GET',
-                    url: 'SelectedMetric.ashx?metric=' + metric,
-                    success: function (response) {
-                        console.log(response + "结果列表")
+            //delectMetric() {
+            //    let metric = $('#metric option:selected').val();
+            //    //var fieldList = [];
+            //    console.log(metric);
+            //    console.log(this.sele1)
+            //    var that = this
+            //    let a = null;
+            //    $.ajax({
+            //        type: 'GET',
+            //        async:false,
+            //        url: 'SelectedMetric.ashx?metric=' + metric,
+            //        success: function (response) {
+            //            //console.log(response + "结果列表")
+            //            a = response.split(',');
+            //        },
+            //        error: function (response) {
+            //            alert("error")
+            //        }
+            //    })
+            //    this.field = a
+            //    console.log($('#field'))
+               
+            //    $('#field').selectpicker('render');
+            //    $('#field').selectpicker('refresh');                                             
 
-                        that.field = response.split(',');
-                        //console.log(fieldList + "  fieldList")
-                       // that.field = fieldList
-                        console.log(that.field + "  this")
-                    },
-                    error: function (response) {
-                        alert("error")
-                    }
-                })
-            }
+            //}
         }
     })
 </script>
